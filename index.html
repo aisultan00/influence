@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Психология влияния — полный справочник</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf8f5;
+  --bg2: #ffffff;
+  --bg3: #f4f0eb;
+  --border: rgba(0,0,0,0.08);
+  --border2: rgba(0,0,0,0.14);
+  --text: #1a1a2e;
+  --text2: #3d3d5c;
+  --muted: #8585a8;
+
+  --social:    #7c6ff7;
+  --social-bg: #ede9ff;
+  --social-soft: #f5f3ff;
+
+  --cognitive:  #0ea87a;
+  --cognitive-bg: #d6f5eb;
+  --cognitive-soft: #edfaf5;
+
+  --emotion:    #f25c3d;
+  --emotion-bg: #fde3dc;
+  --emotion-soft: #fff1ee;
+
+  --frame:      #2e9bda;
+  --frame-bg:   #d5edf9;
+  --frame-soft: #edf6fc;
+
+  --behavior:   #e0488b;
+  --behavior-bg:#fad5e8;
+  --behavior-soft:#fef0f7;
+
+  --marketing-c: #7c6ff7;
+  --nego-c:      #0ea87a;
+  --comm-c:      #2e9bda;
+  --sales-c:     #e0488b;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+.burger {
+  display: none;
+  font-size: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── NAV ─────────────────────────────────────────────────── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250,248,245,0.94);
+  backdrop-filter: blur(16px);
+  border-bottom: 2px solid var(--border);
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  height: 60px;
+}
+
+.nav-logo {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+  color: var(--text);
+  letter-spacing: -.01em;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.nav-logo .logo-emoji {
+  font-size: 20px;
+  display: inline-block;
+  animation: spin 6s linear infinite;
+}
+@keyframes spin {
+  0%,90%,100% { transform: rotate(0deg); }
+  95% { transform: rotate(360deg); }
+}
+.nav-logo .logo-dot { color: var(--social); }
+
+.nav-filters {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.nav-pill {
+  font-family: 'Nunito', sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: 2px solid var(--border2);
+  background: var(--bg2);
+  color: var(--muted);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all .18s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.nav-pill:hover { color: var(--text); border-color: rgba(0,0,0,.25); transform: translateY(-1px); }
+.nav-pill.active { color: #fff; border-color: transparent; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,.18); }
+
+.pill-all.active        { background: var(--text); }
+.pill-social.active     { background: var(--social); }
+.pill-cognitive.active  { background: var(--cognitive); }
+.pill-emotion.active    { background: var(--emotion); }
+.pill-frame.active      { background: var(--frame); }
+.pill-behavior.active   { background: var(--behavior); }
+
+.pill-icon { font-size: 13px; }
+
+.nav-search { margin-left: auto; flex-shrink: 0; }
+.nav-search input {
+  background: var(--bg2);
+  border: 2px solid var(--border2);
+  border-radius: 10px;
+  padding: 7px 14px 7px 36px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  color: var(--text);
+  width: 200px;
+  outline: none;
+  transition: border-color .2s;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238585a8' stroke-width='2.5'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 10px center;
+}
+.nav-search input::placeholder { color: var(--muted); }
+.nav-search input:focus { border-color: var(--social); }
+
+/* ── HERO ────────────────────────────────────────────────── */
+.hero {
+  padding: 4.5rem 2rem 3rem;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.hero-blob {
+  position: absolute;
+  top: -60px; right: -80px;
+  width: 420px; height: 420px;
+  border-radius: 60% 40% 55% 45% / 45% 55% 40% 60%;
+  background: linear-gradient(135deg, #ede9ff 0%, #d5edf9 50%, #d6f5eb 100%);
+  opacity: .55;
+  pointer-events: none;
+  animation: blobmove 8s ease-in-out infinite;
+  z-index: 0;
+}
+@keyframes blobmove {
+  0%,100% { border-radius: 60% 40% 55% 45% / 45% 55% 40% 60%; }
+  50% { border-radius: 45% 55% 40% 60% / 60% 40% 55% 45%; }
+}
+
+.hero-inner { position: relative; z-index: 1; }
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--social-bg);
+  color: var(--social);
+  font-family: 'Nunito', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 1.6rem;
+}
+
+.hero h1 {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  line-height: 1.05;
+  color: var(--text);
+  margin-bottom: 1.4rem;
+  letter-spacing: -.02em;
+}
+.hero h1 .hl-1 { color: var(--social); }
+.hero h1 .hl-2 { color: var(--emotion); }
+
+.hero-desc {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--text2);
+  max-width: 580px;
+  margin-bottom: 2.5rem;
+}
+
+.stats {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  background: var(--bg2);
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  padding: 14px 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform .2s, box-shadow .2s;
+}
+.stat-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+.stat-emoji { font-size: 22px; }
+.stat-num {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.9rem;
+  font-weight: 900;
+  color: var(--text);
+  line-height: 1;
+}
+.stat-label {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+/* ── WAVE DIVIDER ────────────────────────────────────────── */
+.wave-wrap {
+  overflow: hidden;
+  line-height: 0;
+  margin-top: -2px;
+}
+.wave-wrap svg { display: block; width: 100%; }
+
+/* ── GRID ────────────────────────────────────────────────── */
+.grid-wrap {
+  padding: 2.5rem 2rem 6rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.cat-section { margin-bottom: 3.5rem; }
+
+.cat-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1.5rem;
+  padding: 14px 20px;
+  border-radius: 16px;
+  border-left: 5px solid;
+}
+.cat-header-social    { background: var(--social-soft);    border-color: var(--social); }
+.cat-header-cognitive { background: var(--cognitive-soft); border-color: var(--cognitive); }
+.cat-header-emotion   { background: var(--emotion-soft);   border-color: var(--emotion); }
+.cat-header-frame     { background: var(--frame-soft);     border-color: var(--frame); }
+.cat-header-behavior  { background: var(--behavior-soft);  border-color: var(--behavior); }
+
+.cat-icon { font-size: 22px; }
+.cat-name {
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: .02em;
+}
+.cat-count {
+  font-family: 'Nunito', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 20px;
+  background: rgba(255,255,255,.7);
+  margin-left: auto;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 14px;
+}
+
+/* ── CARD ────────────────────────────────────────────────── */
+.card {
+  background: var(--bg2);
+  border: 2px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color .2s, transform .18s, box-shadow .18s;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0,0,0,.1);
+}
+.card.open {
+  box-shadow: 0 10px 28px rgba(0,0,0,.1);
+}
+
+.card-head {
+  padding: 18px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.card-emoji {
+  font-size: 24px;
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: 1px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.1));
+}
+
+.card-title-wrap { flex: 1; min-width: 0; }
+.card-name {
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.3;
+}
+.card-en {
+  font-size: 11.5px;
+  color: var(--muted);
+  margin-top: 2px;
+  font-weight: 500;
+}
+
+.card-toggle {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: transform .2s, background .2s;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1;
+  margin-top: 0px;
+  color: var(--muted);
+  background: var(--bg3);
+}
+.card.open .card-toggle {
+  transform: rotate(45deg);
+  color: var(--text);
+  background: var(--border);
+}
+
+/* card colour strip based on cat */
+.card[data-cat="social"]    { border-top: 4px solid var(--social); }
+.card[data-cat="cognitive"] { border-top: 4px solid var(--cognitive); }
+.card[data-cat="emotion"]   { border-top: 4px solid var(--emotion); }
+.card[data-cat="frame"]     { border-top: 4px solid var(--frame); }
+.card[data-cat="behavior"]  { border-top: 4px solid var(--behavior); }
+
+.card-body {
+  display: none;
+  padding: 0 20px 20px;
+  animation: fadeSlide .2s ease forwards;
+}
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.card.open .card-body { display: block; }
+
+.card-def {
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: var(--text2);
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 2px dashed var(--border);
+}
+
+.contexts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.ctx-card {
+  border-radius: 12px;
+  padding: 11px 13px;
+  border: 1.5px solid transparent;
+}
+.ctx-marketing   { background: #f5f3ff; border-color: #d4cdf9; }
+.ctx-negotiations { background: #edfaf5; border-color: #baecd8; }
+.ctx-communication{ background: #edf6fc; border-color: #b6d9f0; }
+.ctx-sales       { background: #fef0f7; border-color: #f5c6e4; }
+
+.ctx-label {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.ctx-marketing   .ctx-label { color: var(--social); }
+.ctx-negotiations .ctx-label { color: var(--cognitive); }
+.ctx-communication .ctx-label { color: var(--frame); }
+.ctx-sales       .ctx-label { color: var(--behavior); }
+
+.ctx-text {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--text2);
+}
+
+/* ── NO RESULTS ──────────────────────────────────────────── */
+.no-results {
+  grid-column: 1/-1;
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--muted);
+  font-size: 15px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+}
+.no-results .nr-emoji { font-size: 3rem; display: block; margin-bottom: .8rem; }
+
+/* ── FOOTER ──────────────────────────────────────────────── */
+footer {
+  border-top: 2px solid var(--border);
+  padding: 2rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 500;
+  background: var(--bg2);
+}
+footer a { color: var(--social); text-decoration: none; font-weight: 700; }
+footer a:hover { text-decoration: underline; }
+
+.footer-inner { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.footer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--social-bg);
+  color: var(--social);
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-weight: 700;
+  font-size: 13px;
+  text-decoration: none;
+  transition: transform .15s;
+}
+.footer-badge:hover { transform: translateY(-2px); }
+
+/* ── PROGRESS BAR ────────────────────────────────────────── */
+.progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--social), var(--frame), var(--emotion));
+  z-index: 200;
+  transition: width .1s;
+}
+
+/* ── BACK TO TOP ─────────────────────────────────────────── */
+.btt {
+  position: fixed;
+  bottom: 2rem; right: 2rem;
+  width: 44px; height: 44px;
+  background: var(--text);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .2s, transform .2s;
+  z-index: 99;
+  box-shadow: 0 6px 20px rgba(0,0,0,.2);
+}
+.btt.visible { opacity: 1; transform: translateY(0); }
+
+/* ── TOOLTIP TAG ─────────────────────────────────────────── */
+.technique-count-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--text);
+  color: #fff;
+  border-radius: 8px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+@media (max-width: 600px) {
+  .stats { gap: .7rem; }
+  .stat-card { padding: 10px 14px; }
+  .contexts { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 2.2rem; }
+  .nav-search input { width: 130px; }
+  .hero-blob { display: none; }
+}
+@media (max-width: 768px) {
+
+  nav {
+    justify-content: space-between;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  .nav-filters {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: var(--bg2);
+    flex-direction: column;
+    padding: 1rem;
+    gap: 10px;
+    border-bottom: 2px solid var(--border);
+    transform: translateY(-120%);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+  }
+
+  .nav-filters.open {
+    transform: translateY(0);
+  }
+
+  .nav-search {
+    display: none;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress"></div>
+
+<nav>
+  <div class="nav-logo">
+    <span class="logo-emoji">🧠</span>
+    Влияние<span class="logo-dot">.</span>
+  </div>
+  <div class="nav-filters" id="filters">
+    <button class="nav-pill pill-all active" onclick="filter('all',this)">✦ Все</button>
+    <button class="nav-pill pill-social"    onclick="filter('social',this)"><span class="pill-icon">👥</span> Соц. давление</button>
+    <button class="nav-pill pill-cognitive" onclick="filter('cognitive',this)"><span class="pill-icon">💡</span> Когнитивные</button>
+    <button class="nav-pill pill-emotion"   onclick="filter('emotion',this)"><span class="pill-icon">❤️</span> Эмоции</button>
+    <button class="nav-pill pill-frame"     onclick="filter('frame',this)"><span class="pill-icon">🔲</span> Фрейминг</button>
+    <button class="nav-pill pill-behavior"  onclick="filter('behavior',this)"><span class="pill-icon">🕳️</span> Поведение</button>
+  </div>
+  <div class="nav-search">
+    <input type="text" id="search" placeholder="Поиск..." oninput="doSearch()">
+  </div>
+    <button class="burger" onclick="toggleMenu()">☰</button>
+</nav>
+
+<div class="hero">
+  <div class="hero-blob"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">📖 Психология влияния — полный справочник</div>
+    <h1>Как люди<br>принимают <span class="hl-1">решения</span><br>и что на них <span class="hl-2">влияет</span></h1>
+    <p class="hero-desc">40 техник психологического влияния с примерами в маркетинге, переговорах, продажах и коммуникации. Понимать механизмы — значит делать осознанный выбор.</p>
+    <div class="stats">
+      <div class="stat-card">
+        <span class="stat-emoji">🧩</span>
+        <div>
+          <div class="stat-num" id="total-count">40</div>
+          <div class="stat-label">техник</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-emoji">🗂️</span>
+        <div>
+          <div class="stat-num">5</div>
+          <div class="stat-label">категорий</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-emoji">🎯</span>
+        <div>
+          <div class="stat-num">4</div>
+          <div class="stat-label">контекста применения</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wave-wrap">
+  <svg viewBox="0 0 1440 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0,20 C360,40 720,0 1440,20 L1440,40 L0,40 Z" fill="#f4f0eb"/>
+  </svg>
+</div>
+
+<div class="grid-wrap" id="grid"></div>
+
+<footer>
+  <div class="footer-inner">
+    <div>Справочник создан для образовательных целей &mdash; изучайте, применяйте осознанно 🌱</div>
+    <a class="footer-badge" href="https://t.me/fortioris017" target="_blank">
+      ✈️ @fortioris017
+    </a>
+  </div>
+</footer>
+
+<button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// ── SCROLL PROGRESS + BACK TO TOP ──
+window.addEventListener('scroll', () => {
+  const s = document.documentElement;
+  const pct = (window.scrollY / (s.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('progress').style.width = pct + '%';
+  document.getElementById('btt').classList.toggle('visible', window.scrollY > 400);
+});
+
+// ── DATA ──────────────────────────────────────────────────
+const CATS = {
+  social:    { label:'Социальное давление',   color:'#7c6ff7', bg:'#social-soft', cls:'social',    icon:'👥', hcls:'cat-header-social' },
+  cognitive: { label:'Когнитивные искажения', color:'#0ea87a', cls:'cognitive',   icon:'💡', hcls:'cat-header-cognitive' },
+  emotion:   { label:'Эмоциональный триггер', color:'#f25c3d', cls:'emotion',     icon:'❤️', hcls:'cat-header-emotion' },
+  frame:     { label:'Фрейминг и восприятие', color:'#2e9bda', cls:'frame',       icon:'🔲', hcls:'cat-header-frame' },
+  behavior:  { label:'Поведенческие ловушки', color:'#e0488b', cls:'behavior',    icon:'🕳️', hcls:'cat-header-behavior' },
+};
+
+const EMOJIS = {
+  social:    ['🤝','👑','😊','🎁','📛','🪞','🏘️','🙏'],
+  cognitive: ['⚓','🎭','🪑','🥇','📰','💀','👔','⚡','🎯','📊','🌟','📉','🔮'],
+  emotion:   ['💎','😱','💸','👻','🕵️','🌈','⏱️'],
+  frame:     ['🔗','🎮','🔍','🎨','❓','🪤','🤯','🌀'],
+  behavior:  ['🚪','🚫','🛡️','🙈','🎲','⚡'],
+};
+
+const CTX_ICONS = { marketing:'📣', negotiations:'🤝', communication:'💬', sales:'💰' };
+
+const DATA = [
+  { cat:'social', name:'Социальное доказательство', en:'Social proof',
+    def:'Люди склонны повторять поведение большинства — особенно в ситуации неопределённости. Чем больше людей делают что-то, тем «правильнее» это кажется.',
+    marketing:'«5 миллионов клиентов уже с нами». Счётчики просмотров, отзывы, UGC-контент, раздел «Люди также купили».',
+    negotiations:'«Все наши партнёры перешли на эту схему работы» — создаёт ощущение нормы в отрасли.',
+    communication:'«Большинство в нашей команде поддерживает этот подход» — смещает восприятие к консенсусу.',
+    sales:'Отзывы, кейсы, логотипы клиентов на сайте. «Этот товар — наш бестселлер».' },
+  { cat:'social', name:'Авторитет', en:'Authority',
+    def:'Мнению эксперта, человека в статусе или с символами власти доверяют значительно больше, чем аргументу без источника.',
+    marketing:'«Рекомендовано дерматологами». Белый халат, звания, сертификаты, публикации в СМИ.',
+    negotiations:'Приводить данные исследований, ссылаться на отраслевых лидеров, подчёркивать экспертизу команды.',
+    communication:'«По данным Harvard Business Review...» — источник придаёт весомость любому тезису.',
+    sales:'Сертификаты продукта, награды, публикации о компании, партнёрство с известными брендами.' },
+  { cat:'social', name:'Симпатия', en:'Liking',
+    def:'Мы соглашаемся с теми, кто нам нравится: похожими на нас, привлекательными, дружелюбными или делающими нам комплименты.',
+    marketing:'Инфлюенсеры — нам симпатичны, мы им доверяем. Бренд с человеческим лицом и характером.',
+    negotiations:'Найти общие темы до переговоров. Small talk, общие знакомые, похожий background.',
+    communication:'Сначала установить раппорт, потом перейти к делу. Имитация стиля речи собеседника.',
+    sales:'Продавец искренне интересуется покупателем. «Мы схожи в подходе к качеству».' },
+  { cat:'social', name:'Взаимность', en:'Reciprocity',
+    def:'Получив что-то бесплатно, человек испытывает социальный долг ответить тем же — даже если подарок был символическим.',
+    marketing:'Бесплатные пробники, лид-магниты, демо-доступ, полезный контент без регистрации.',
+    negotiations:'Сделать первую уступку — собеседник почувствует обязательство ответить.',
+    communication:'Первым помочь коллеге, поделиться ресурсом. Создаёт кредит доверия.',
+    sales:'Подарить что-то перед презентацией: чашку кофе, полезный чек-лист, анализ ситуации клиента.' },
+  { cat:'social', name:'Использование имени', en:'Name usage',
+    def:'Обращение к человеку по имени активирует личное внимание, создаёт ощущение близости и значимости.',
+    marketing:'Персонализация email-рассылок. «Айша, специально для вас...» повышает CTR на 20–30%.',
+    negotiations:'Называть оппонента по имени — создаёт ощущение личного диалога, снижает напряжение.',
+    communication:'Использовать имя при несогласии: «Данияр, я понимаю твою точку зрения, и всё же...»',
+    sales:'«Сергей, это решение создано именно для такой ситуации, как у вас».' },
+  { cat:'social', name:'Зеркалирование', en:'Mirroring',
+    def:'Копирование поз, темпа речи, слов и жестов собеседника создаёт ощущение понимания и усиливает доверие.',
+    marketing:'Тональность бренда адаптируется под аудиторию: молодёжный сленг или деловой стиль.',
+    negotiations:'Повторить последние слова оппонента: «Итак, для вас ключевое — надёжность?» — открывает его.',
+    communication:'Подстройка под темп, громкость и стиль собеседника снижает сопротивление.',
+    sales:'«Вы сказали, что вам важна скорость — давайте сфокусируемся именно на этом».' },
+  { cat:'social', name:'Внутригрупповой фаворитизм', en:'In-group bias',
+    def:'Люди симпатизируют и доверяют тем, кого считают "своими" — членами своей группы, субкультуры, профессии.',
+    marketing:'«Сделано предпринимателями для предпринимателей». Tribal marketing — апелляция к идентичности.',
+    negotiations:'Подчеркнуть общую принадлежность: «Мы оба в стартап-мире — понимаем, как это работает».',
+    communication:'«Как человек из отдела продаж, ты понимаешь, о чём я» — создаёт союзников.',
+    sales:'«Это продукт для тех, кто серьёзно относится к результату» — включение в элитную группу.' },
+  { cat:'social', name:'Эффект Бенджамина Франклина', en:'Ben Franklin effect',
+    def:'Человек, который оказал вам услугу, начинает относиться к вам лучше — мозг рационализирует действие как проявление симпатии.',
+    marketing:'Просить аудиторию помочь: голосование, тест, обратная связь. Вовлечённость создаёт привязанность.',
+    negotiations:'Попросить оппонента о небольшой услуге до переговоров — он бессознательно становится на вашу сторону.',
+    communication:'«Не могли бы вы подсказать...» — тот, кто помог, чувствует к вам расположение.',
+    sales:'Попросить клиента поучаствовать в опросе или посоветовать коллег. Действие рождает лояльность.' },
+
+  { cat:'cognitive', name:'Якорь', en:'Anchoring',
+    def:'Первая названная цифра или условие становится психологической точкой отсчёта — все последующие варианты оцениваются относительно неё.',
+    marketing:'«Обычная цена — 50 000 ₸, сегодня — 29 900». Зачёркнутая цена как якорь.',
+    negotiations:'Первым называть число — кто устанавливает якорь, тот управляет переговорным пространством.',
+    communication:'«Нам нужно 3 месяца» (завышенный якорь) — потом «Готовы уложиться в 6 недель».',
+    sales:'Начинать с премиум-пакета. После него средний кажется разумным компромиссом.' },
+  { cat:'cognitive', name:'Эффект Форера', en:'Forer effect',
+    def:'Люди воспринимают расплывчатые, обобщённые описания как точно подходящие лично им — особенно если хотят верить.',
+    marketing:'«Этот курс — для тех, кто хочет большего, но не знает с чего начать» — подходит почти всем.',
+    negotiations:'«Я чувствую, что для вас важна не только цена» — создаёт ощущение понимания.',
+    communication:'Универсальные комплименты, которые кажутся персональными: «Ты явно умеешь видеть суть».',
+    sales:'Опросники перед презентацией: клиент видит «свой» результат в стандартном шаблоне.' },
+  { cat:'cognitive', name:'Эффект ИКЕА', en:'IKEA effect',
+    def:'Вещи и идеи, в создание которых человек вложил труд, воспринимаются им как более ценные.',
+    marketing:'Конструкторы, персонализация, «настройте под себя». Вовлечение в создание продукта.',
+    negotiations:'Дать оппоненту участвовать в выработке условий — он будет защищать «своё» решение.',
+    communication:'«Давай вместе набросаем план» — соавтор заинтересован в успехе результата.',
+    sales:'Онбординг, настройка аккаунта, демонстрация с участием клиента. Вложенные усилия = привязанность.' },
+  { cat:'cognitive', name:'Эффект первенства', en:'Primacy effect',
+    def:'Первый элемент в списке, первый кандидат, первое предложение запоминаются лучше и получают больший вес при оценке.',
+    marketing:'Первый продукт в листинге получает непропорционально больше кликов. Первый слайд — самый важный.',
+    negotiations:'Первым изложить свою позицию — задаёт рамку для всего разговора.',
+    communication:'Самый важный аргумент — в начале, не в конце письма или презентации.',
+    sales:'Выводить лучший товар первым. Открывать встречу с самого сильного тезиса.' },
+  { cat:'cognitive', name:'Эвристика доступности', en:'Availability heuristic',
+    def:'То, что легко вспомнить (яркое, недавнее, эмоциональное), кажется более распространённым и значимым, чем оно есть на самом деле.',
+    marketing:'Вирусные истории, яркие кейсы, громкие примеры формируют восприятие нормы.',
+    negotiations:'Привести яркий недавний пример провала конкурента — он будет живо стоять в памяти.',
+    communication:'«Помнишь, как в прошлый раз это сработало?» — активирует позитивный опыт.',
+    sales:'Показывать истории успеха клиентов перед презентацией продукта.' },
+  { cat:'cognitive', name:'Ошибка выжившего', en:'Survivorship bias',
+    def:'Мы анализируем только успешные случаи (выживших) и игнорируем провалы, что искажает реальную картину.',
+    marketing:'Кейсы — только успехи. «Все наши клиенты выросли» — но мы не видим тех, кто ушёл.',
+    negotiations:'«Все успешные сделки строились на доверии» — замалчивая случаи, где это не сработало.',
+    communication:'Осознанный контраргумент: «А что не вошло в эту выборку?»',
+    sales:'«Самые успешные предприниматели выбирают X» — но провалившиеся тоже выбирали X.' },
+  { cat:'cognitive', name:'Стереотипизация', en:'Stereotyping',
+    def:'Автоматическое отнесение человека или объекта к категории с заранее приписанными свойствами — упрощает обработку информации.',
+    marketing:'Дизайн упаковки: люксовый продукт = тёмный цвет, минимализм, тяжёлый материал.',
+    negotiations:'Внешность, одежда, офис создают первое впечатление до начала переговоров.',
+    communication:'Знать стереотипы аудитории — и работать с ними или разрушать их осознанно.',
+    sales:'«Это выбор профессионалов» — категоризирует продукт и покупателя одновременно.' },
+  { cat:'cognitive', name:'Эвристический эффект', en:'Heuristic effect',
+    def:'Мозг использует короткие ментальные пути (правила большого пальца) вместо глубокого анализа.',
+    marketing:'«Дорогое = качественное». Известный бренд = надёжный. Цена как прокси качества.',
+    negotiations:'«Сложные условия = сложный контракт = риск» — упрощённая оценка без детального анализа.',
+    communication:'Использовать знакомые форматы и структуры — они воспринимаются как «правильные».',
+    sales:'Красивая упаковка, высокая цена, известное имя снижают сопротивление покупателя.' },
+  { cat:'cognitive', name:'Прайминг', en:'Priming',
+    def:'Предшествующий стимул незаметно активирует ассоциации, которые влияют на последующие мысли, оценки и решения.',
+    marketing:'Запах кофе в магазине → покупки. Классическая музыка в ресторане → более дорогие заказы.',
+    negotiations:'Показать успешные кейсы до переговоров. Обстановка переговорной комнаты влияет на исход.',
+    communication:'Начать разговор с позитивного примера — задаёт конструктивную рамку.',
+    sales:'Видео с довольными клиентами перед демонстрацией продукта. «Представьте, что вы уже используете это».' },
+  { cat:'cognitive', name:'Предвзятость подтверждения', en:'Confirmation bias',
+    def:'Люди ищут и интерпретируют информацию так, чтобы она подтверждала их уже существующие убеждения.',
+    marketing:'«Вы, скорее всего, уже чувствуете, что X не работает» — усиливает имеющиеся сомнения.',
+    negotiations:'Дать оппоненту данные, которые подтверждают его картину мира — но ведут к нужному выводу.',
+    communication:'Сначала согласиться с их точкой зрения, потом аккуратно сдвигать фрейм.',
+    sales:'«Вы наверняка замечали, что стандартные решения не дают результата» — подтверждает боль клиента.' },
+  { cat:'cognitive', name:'Эффект ореола', en:'Halo effect',
+    def:'Одна позитивная черта человека или бренда распространяется на все остальные атрибуты — мы воспринимаем их целостно лучше.',
+    marketing:'Красивый сайт → качественный продукт. Красивый актёр в рекламе → хороший продукт.',
+    negotiations:'Дорогой костюм, уверенная речь, хороший офис — всё это повышает доверие к вашим словам.',
+    communication:'Первое впечатление формирует интерпретацию всего последующего. Оно критически важно.',
+    sales:'«Бестселлер» на одном продукте переносит доверие на весь ассортимент бренда.' },
+  { cat:'cognitive', name:'Ошибка базового уровня', en:'Base rate neglect',
+    def:'Люди игнорируют статистику в пользу конкретной, живой истории — даже если цифры говорят обратное.',
+    marketing:'Один яркий кейс переубеждает лучше, чем сухая статистика. История > данные.',
+    negotiations:'«Я знаю компанию, которая сделала это — и выиграла» эффективнее, чем «в 60% случаев».',
+    communication:'Персональные истории в презентациях и письмах работают сильнее любых диаграмм.',
+    sales:'«Позвольте рассказать про нашего клиента Максата...» — история запускает эмпатию.' },
+
+  { cat:'emotion', name:'Дефицит', en:'Scarcity',
+    def:'Ограниченное количество или временные рамки усиливают желание — страх потери возможности активирует срочность.',
+    marketing:'«Осталось 3 места», «Акция до воскресенья», «Лимитированная серия».',
+    negotiations:'«У нас ещё два предложения от других покупателей» — создаёт давление времени.',
+    communication:'«Это окно возможностей закрывается в конце месяца» — ускоряет принятие решения.',
+    sales:'Таймеры обратного отсчёта, ограниченный тираж, «только для первых 50 участников».' },
+  { cat:'emotion', name:'Страх потери', en:'Loss aversion',
+    def:'Боль от потери психологически в 2–2.5 раза сильнее, чем радость от эквивалентного приобретения.',
+    marketing:'«Не упустите скидку» сильнее, чем «Получите скидку». Акцент на том, что теряется.',
+    negotiations:'«Каждый месяц промедления стоит вам X» — потери убеждают лучше, чем выгоды.',
+    communication:'«Если мы не сделаем это сейчас, мы рискуем потерять...» — мотивирует к действию.',
+    sales:'Бесплатный пробный период с последующим списанием — отмена = потеря.' },
+  { cat:'emotion', name:'Неприятие потери', en:'Loss aversion (status quo)',
+    def:'Мы стремимся сохранить то, что уже имеем — страх потери существующего доминирует над желанием нового.',
+    marketing:'«У вас накоплено 500 бонусных баллов — не дайте им сгореть».',
+    negotiations:'«Вы уже вложили в это много сил — было бы жаль остановиться сейчас».',
+    communication:'Апелляция к уже достигнутому статусу: «Вы построили репутацию — давайте её защитим».',
+    sales:'«Ваши данные, настройки, история — всё сохранится при переходе на Pro».' },
+  { cat:'emotion', name:'Создание страха', en:'Fear appeal',
+    def:'Указание на угрозу повышает внимание и мотивацию к действию — при условии, что рядом есть решение.',
+    marketing:'«Без защиты ваши данные уязвимы → наш продукт решает это за вас».',
+    negotiations:'«Конкуренты уже движутся в этом направлении — нам нужно опередить их».',
+    communication:'«Если мы не исправим это сейчас, последствия будут значительно сложнее».',
+    sales:'Показать стоимость бездействия: «Что произойдёт, если ничего не изменится?»' },
+  { cat:'emotion', name:'Curiosity gap', en:'Curiosity gap',
+    def:'Намеренный информационный пробел вызывает психологическое напряжение — человек хочет его закрыть.',
+    marketing:'«Этот приём используют лучшие переговорщики ФБР — и вы, скорее всего, ему поддавались».',
+    negotiations:'Не раскрывать все карты сразу. Дозированная информация удерживает интерес.',
+    communication:'«Есть кое-что важное, что хочу обсудить лично» — создаёт ожидание.',
+    sales:'«Прежде чем показать цену, позвольте рассказать, что именно вы получите».' },
+  { cat:'emotion', name:'Принцип Поллианны', en:'Pollyanna principle',
+    def:'Мозг легче обрабатывает позитивные слова и образы — они запоминаются лучше и вызывают меньше сопротивления.',
+    marketing:'«Сэкономьте время» лучше, чем «Не тратьте время». Позитивные формулировки в CTA.',
+    negotiations:'«Давайте найдём решение» вместо «Давайте решим проблему». Фрейм возможности.',
+    communication:'Позитивная обратная связь перед критикой снижает защитную реакцию.',
+    sales:'«Представьте результат» вместо «Думайте о трудностях». Язык будущего успеха.' },
+  { cat:'emotion', name:'Гиперболическое дисконтирование', en:'Hyperbolic discounting',
+    def:'Люди непропорционально высоко ценят немедленное вознаграждение по сравнению с отложенным — даже если объективно второе лучше.',
+    marketing:'«Получите результат уже сегодня». Мгновенный доступ, быстрая доставка, instant gratification.',
+    negotiations:'«Мы можем перевести деньги прямо сейчас» — немедленность как аргумент.',
+    communication:'Короткие сроки делают предложение привлекательнее. «Уже через неделю вы увидите...»',
+    sales:'Быстрый онбординг, немедленный результат от первого использования — критический фактор.' },
+
+  { cat:'frame', name:'Последовательность', en:'Commitment & consistency',
+    def:'Дав маленькое согласие, человек стремится быть последовательным со своей позицией и соглашается на большее.',
+    marketing:'«Согласны, что здоровье важно?» → подписка на рассылку → покупка курса.',
+    negotiations:'Добиться согласия по маленьким пунктам в начале — большие потом принимаются легче.',
+    communication:'«Ты же сам говорил, что качество важнее цены — давай исходить из этого».',
+    sales:'Микро-да: «Вам важна скорость? Надёжность? Поддержка?» — строит путь к крупной покупке.' },
+  { cat:'frame', name:'Иллюзия свободы', en:'Illusion of choice',
+    def:'Выбор из заранее ограниченных вариантов создаёт ощущение контроля — хотя реальная свобода отсутствует.',
+    marketing:'«Какой цвет предпочитаете: синий или чёрный?» — выбор модели уже сделан за покупателя.',
+    negotiations:'«Вам удобнее подписать в понедельник или в среду?» — встреча состоится в любом случае.',
+    communication:'«Давай обсудим это сейчас или после обеда» — разговор неизбежен.',
+    sales:'Три пакета, где средний «очевидно» лучший — направляет выбор без давления.' },
+  { cat:'frame', name:'Эффект фокусировки', en:'Focusing effect',
+    def:'Мы переоцениваем значимость того, на чём сосредоточено наше внимание прямо сейчас.',
+    marketing:'«Представьте, как изменится ваша жизнь» — внимание на мечту, а не на цену и усилия.',
+    negotiations:'Задать фокус: «Главный вопрос здесь — долгосрочное партнёрство». Остальное отходит.',
+    communication:'Начинать с ключевого тезиса — он будет взвешен сильнее остального.',
+    sales:'Детальное описание выгод до обсуждения цены. Фокус на ценности, не на стоимости.' },
+  { cat:'frame', name:'Эффект контрастности', en:'Contrast effect',
+    def:'Объект воспринимается иначе в зависимости от контекста — предшествующее сравнение меняет оценку.',
+    marketing:'Показать дорогой вариант первым → средний кажется доступным. «Выгодное» в сравнении.',
+    negotiations:'После высокой первоначальной цены — уступка кажется значительной.',
+    communication:'«По сравнению с тем, что было год назад, это огромный прогресс».',
+    sales:'«Сравните с тем, что вы платите сейчас» — новая цена в выгодном контексте.' },
+  { cat:'frame', name:'Наводящие вопросы', en:'Leading questions',
+    def:'Формулировка вопроса содержит скрытое предположение, которое собеседник принимает как данность.',
+    marketing:'«Почему всё больше компаний выбирают X?» — предполагает, что это действительно происходит.',
+    negotiations:'«Как вы планируете использовать это после подписания?» — предполагает подписание.',
+    communication:'«Что нам нужно изменить, чтобы двигаться быстрее?» — предполагает согласие с целью.',
+    sales:'«Когда вам удобнее начать — в начале или в конце месяца?» — выбор момента, не факта покупки.' },
+  { cat:'frame', name:'Decoy Effect', en:'Decoy effect',
+    def:'Добавление заведомо невыгодного третьего варианта делает один из двух оставшихся значительно привлекательнее.',
+    marketing:'Три тарифа: Basic, Pro, Ultra. Ultra — «приманка», делающая Pro очевидным выбором.',
+    negotiations:'Предложить три сценария, где один — явно слабый. Внимание фокусируется на двух оставшихся.',
+    communication:'«Можем сделать A, B или C» — если C явно хуже A, выбор A становится лёгким.',
+    sales:'Три пакета в меню, где средний — мишень. «Приманка» делает его относительно выгодным.' },
+  { cat:'frame', name:'Парадокс выбора', en:'Paradox of choice',
+    def:'Избыток вариантов снижает удовлетворённость и вероятность покупки — выбор парализует.',
+    marketing:'Amazon: «Часто покупают вместе» — упрощает выбор. Ограниченный ассортимент в Apple Store.',
+    negotiations:'Не предлагать более двух-трёх вариантов — избыток ведёт к затягиванию решения.',
+    communication:'«Предлагаю два пути — вот различия» — упрощение всегда воспринимается с благодарностью.',
+    sales:'Куратор, а не каталог: «Для вашей ситуации подойдёт именно этот вариант».' },
+
+  { cat:'behavior', name:'Нога в дверях', en:'Foot-in-the-door',
+    def:'Маленькое согласие повышает вероятность согласия на большую просьбу позднее.',
+    marketing:'Бесплатный вебинар → email-курс → платный продукт. Маленькие «да» ведут к большому.',
+    negotiations:'Начать с простого согласованного пункта — создаёт инерцию.',
+    communication:'«Не могли бы вы взглянуть на одну страницу?» — потом «А теперь весь документ».',
+    sales:'Пробный период, затем апсейл. Подписка на рассылку → вебинар → курс.' },
+  { cat:'behavior', name:'Дверь в лицо', en:'Door-in-the-face',
+    def:'Огромная просьба намеренно отвергается — чтобы следующая, реальная просьба казалась разумным компромиссом.',
+    marketing:'Начальная «полная» цена рядом с акционной — скидка кажется уступкой.',
+    negotiations:'Начать с завышенных условий — уступка к реальному предложению воспринимается как жест.',
+    communication:'«Мы понимали, что 3 часа нереально — давайте хотя бы 30 минут».',
+    sales:'«Флагман» в начале презентации делает основной продукт «доступным».' },
+  { cat:'behavior', name:'Эвристика нулевого риска', en:'Zero risk bias',
+    def:'Люди предпочитают полностью устранить маленький риск, чем значительно снизить большой — даже если математически второе выгоднее.',
+    marketing:'«100% гарантия возврата». Нулевой риск важнее низкого риска психологически.',
+    negotiations:'«Мы берём на себя все риски по этому пункту» — снимает барьер для согласия.',
+    communication:'«Это вообще не повлияет на вас» воспринимается лучше, чем «риск минимален».',
+    sales:'Гарантии, бесплатный возврат, пробный период — устраняют «нет» до его появления.' },
+  { cat:'behavior', name:'Недооценка бездействия', en:'Omission bias',
+    def:'Люди склонны считать действие морально хуже бездействия — даже если результат одинаков.',
+    marketing:'«Просто попробуйте — вы ничем не рискуете». Снижение психологической стоимости действия.',
+    negotiations:'Показать, что «ничего не делать» — это тоже выбор, и у него есть последствия.',
+    communication:'«Не принять решение сейчас — это тоже решение, со своими рисками».',
+    sales:'«Оставить всё как есть» — это не нейтральный вариант: показать стоимость статус-кво.' },
+  { cat:'behavior', name:'Отклонение к результату', en:'Outcome bias',
+    def:'Мы оцениваем прошлые решения по их исходу, а не по качеству самого решения в момент принятия.',
+    marketing:'Кейсы успеха работают — даже если успех был отчасти случайным. Результат убеждает.',
+    negotiations:'«В прошлый раз этот подход дал результат» — исход легитимизирует метод.',
+    communication:'Осознать ловушку: плохой результат ≠ плохое решение, хороший ≠ хорошее.',
+    sales:'Показывать результаты клиентов — они воспринимаются как доказательство метода.' },
+  { cat:'behavior', name:'Ультиматум', en:'Ultimatum',
+    def:'Жёсткий выбор «или/или» отключает поиск альтернатив и создаёт ощущение неизбежности.',
+    marketing:'«Зарегистрируйтесь сейчас или потеряете место» — бинарный выбор без третьего варианта.',
+    negotiations:'«Это наше финальное предложение» — закрывает пространство для дальнейшего торга.',
+    communication:'Использовать редко — ультиматум разрушает отношения, если блеф раскрыт.',
+    sales:'«Это последний день акции» — бинарный выбор: купить сейчас или потерять условия.' },
+];
+
+let currentFilter = 'all';
+let searchQuery   = '';
+
+function filter(cat, btn) {
+  currentFilter = cat;
+  document.querySelectorAll('.nav-pill').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  render();
+}
+
+function doSearch() {
+  searchQuery = document.getElementById('search').value.toLowerCase().trim();
+  render();
+}
+
+function toggle(id) {
+  const card = document.getElementById('c_' + id);
+  if (!card) return;
+  card.classList.toggle('open');
+}
+
+function render() {
+  const grid = document.getElementById('grid');
+  let html = '';
+  let total = 0;
+
+  const catOrder = ['social','cognitive','emotion','frame','behavior'];
+  catOrder.forEach(catId => {
+    if (currentFilter !== 'all' && currentFilter !== catId) return;
+    const cat = CATS[catId];
+    const emojis = EMOJIS[catId] || [];
+    const items = DATA.filter(t => {
+      if (t.cat !== catId) return false;
+      if (!searchQuery) return true;
+      return t.name.toLowerCase().includes(searchQuery)
+          || t.def.toLowerCase().includes(searchQuery)
+          || (t.en||'').toLowerCase().includes(searchQuery);
+    });
+    if (!items.length) return;
+    total += items.length;
+
+    html += `<div class="cat-section">
+      <div class="cat-header ${cat.hcls}">
+        <span class="cat-icon">${cat.icon}</span>
+        <span class="cat-name" style="color:${cat.color}">${cat.label}</span>
+        <span class="cat-count" style="color:${cat.color}">${items.length} техник</span>
+      </div>
+      <div class="cards">`;
+
+    items.forEach((t, i) => {
+      const uid  = catId + '_' + i;
+      const emoji = emojis[i % emojis.length] || '✦';
+      html += `<div class="card" id="c_${uid}" data-cat="${catId}" onclick="toggle('${uid}')">
+        <div class="card-head">
+          <div class="card-emoji">${emoji}</div>
+          <div class="card-title-wrap">
+            <div class="card-name">${t.name}</div>
+            ${t.en ? `<div class="card-en">${t.en}</div>` : ''}
+          </div>
+          <div class="card-toggle">+</div>
+        </div>
+        <div class="card-body">
+          <p class="card-def">${t.def}</p>
+          <div class="contexts">
+            <div class="ctx-card ctx-marketing">
+              <div class="ctx-label">${CTX_ICONS.marketing} Маркетинг</div>
+              <div class="ctx-text">${t.marketing}</div>
+            </div>
+            <div class="ctx-card ctx-negotiations">
+              <div class="ctx-label">${CTX_ICONS.negotiations} Переговоры</div>
+              <div class="ctx-text">${t.negotiations}</div>
+            </div>
+            <div class="ctx-card ctx-communication">
+              <div class="ctx-label">${CTX_ICONS.communication} Коммуникация</div>
+              <div class="ctx-text">${t.communication}</div>
+            </div>
+            <div class="ctx-card ctx-sales">
+              <div class="ctx-label">${CTX_ICONS.sales} Продажи</div>
+              <div class="ctx-text">${t.sales}</div>
+            </div>
+          </div>
+        </div>
+      </div>`;
+    });
+    html += '</div></div>';
+  });
+
+  if (!total) {
+    html = `<div class="no-results">
+      <span class="nr-emoji">🔍</span>
+      Ничего не найдено по запросу «${searchQuery}»
+    </div>`;
+  }
+
+  grid.innerHTML = html;
+  document.getElementById('total-count').textContent = total;
+}
+
+function toggleMenu() {
+  document.getElementById('filters').classList.toggle('open');
+}
+
+render();
+</script>
+</body>
+</html>
